@@ -1,0 +1,68 @@
+{
+	"name": "Notebook 2",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "Spark1",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1"
+			},
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/375f8edc-1d34-4c35-902a-25d09f6a4811/resourceGroups/AzureDataFactoryTutorial/providers/Microsoft.Synapse/workspaces/azuredatafactorytutorial/bigDataPools/Spark1",
+				"name": "Spark1",
+				"type": "Spark",
+				"endpoint": "https://azuredatafactorytutorial.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Spark1",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"automaticScaleJobs": false
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"microsoft": {
+						"language": "python"
+					}
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://users@tutorialcontosolake.dfs.core.windows.net/NYCTaxi/PassengerCountStats_parquetformat/part-00000-9956bde5-2e26-4bfa-9af5-33ed34e22a2d-c000.snappy.parquet', format='parquet')\r\n",
+					"display(df.limit(10))"
+				],
+				"execution_count": 1
+			}
+		]
+	}
+}
