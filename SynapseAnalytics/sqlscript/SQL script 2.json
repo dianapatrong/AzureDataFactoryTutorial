@@ -2,13 +2,13 @@
 	"name": "SQL script 2",
 	"properties": {
 		"content": {
-			"query": "SELECT PassengerCount,\n      SUM(TripDistanceMiles) as SumTripDistance,\n      AVG(TripDistanceMiles) as AvgTripDistance\nFROM  dbo.NYCTaxiTripSmall\nWHERE TripDistanceMiles > 0 AND PassengerCount > 0\nGROUP BY PassengerCount\nORDER BY PassengerCount;",
+			"query": "CREATE LOGIN dpatronadmin WITH PASSWORD = 'SparkyAdmin1309';\nGO\nCREATE USER dpatronadmin FOR LOGIN dpatronadmin;\nGO\nGRANT ADMINISTER DATABASE BULK OPERATIONS TO dpatronadmin;\nGO",
 			"metadata": {
 				"language": "sql"
 			},
 			"currentConnection": {
-				"poolName": "SQLPOOL1",
-				"databaseName": "SQLPOOL1"
+				"poolName": "Built-in",
+				"databaseName": "DataExplorationDB"
 			},
 			"resultLimit": 5000
 		},

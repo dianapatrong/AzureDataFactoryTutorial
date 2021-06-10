@@ -7,8 +7,8 @@
 				"language": "sql"
 			},
 			"currentConnection": {
-				"poolName": "SQLPOOL1",
-				"databaseName": "SQLPOOL1"
+				"poolName": "Built-in",
+				"databaseName": "DataExplorationDB"
 			},
 			"resultLimit": 5000
 		},
